@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  jersey: 1
+  team: 
+
+two:
+  name: MyString
+  jersey: 1
+  team: 

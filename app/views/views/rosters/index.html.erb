@@ -1,0 +1,25 @@
+<h1>Rosters</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rosters.each do |roster| %>
+  <tr>
+    <td><%= roster.name %></td>
+    <td><a href="http://localhost:3000/roster_entries">[Ver jugadores]</a></td>
+    <td><a href="http://localhost:3000/roster_entries/new">[Introducir jugadores]</a> </td>
+    <td><%= link_to 'Edit', edit_roster_path(roster) %></td>
+    <td><%= link_to 'Destroy', roster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo', new_roster_path %>

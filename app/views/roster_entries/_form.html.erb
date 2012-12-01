@@ -1,0 +1,40 @@
+<%= form_for(@roster_entry) do |f| %>
+  <% if @roster_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@roster_entry.errors.count, "error") %> prohibited this roster_entry from being saved:</h2>
+
+      <ul>
+      <% @roster_entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%
+       @teams = Team.all.collect{|t| [t.nombre, t.id] }
+       @rosters = Roster.all.collect{|t| [t.name, t.id] }
+       @players = Player.all.collect{|t| [t.name, t.id] }
+
+    %>
+
+  <div class="field">
+    <%= f.label :roster_id %><br />
+    <%= select(:roster_entry, :roster_id, @rosters) %>
+  </div>
+  <div class="field">
+    <%= f.label :player_id %><br />
+    <%= select(:roster_entry, :player_id, @players) %>
+  </div>
+  <div class="field">
+    <%= f.label :team_id %><br />
+    <%= select(:roster_entry, :team_id, @teams) %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
