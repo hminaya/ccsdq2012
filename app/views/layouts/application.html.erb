@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ccsdq2012</title>
+  <title>Code Camp SDQ - 2012</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <div class="content-wrapper">
+  </div>
+</header>
+<div id="body">
+  <div style="text-align:center;">
+    <a href="http://localhost:3000/teams">[equipos]</a>
+    <a href="http://localhost:3000/players">[jugadores]</a>
+    <a href="http://localhost:3000/rosters">[rosters]</a>
+  </div>
+  <section class="content-wrapper main-content clear-fix">
+    <%= yield %>
+    </section>
+</div>
 
-<%= yield %>
+<script type="text/javascript">
 
+  $(function(){
+
+      var $tStyle = $("table");
+      $tStyle.find("tr:even").addClass("even");
+      $tStyle.find("tr:odd").addClass("odd");
+      $tStyle.find("th").addClass("header");
+
+      var $tStyleReporte = $(".tableStyleReporte");
+      $tStyleReporte.find("tr:even").addClass("even");
+      $tStyleReporte.find("tr:odd").addClass("odd");
+      $tStyleReporte.find("th").addClass("header");
+
+  });
+
+</script>
 </body>
 </html>
